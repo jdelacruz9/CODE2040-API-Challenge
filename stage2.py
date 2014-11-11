@@ -3,7 +3,6 @@
 
 import requests
 import json
-from urllib2 import urlopen, Request
 
 #my identifying token
 token = 'jcUHJ3Axst' 
