@@ -23,12 +23,17 @@ rJSON = r.json()['result']
 haystack = rJSON['haystack']
 needle = rJSON['needle']
 
-print haystack
-print needle
+#printing the array
+print "The haystack array is %s" %(haystack)
+
+#printing the needle string
+print "The needle string is %s" %(needle)
 
 #Now we search the needle string in the haystack array using an array method to find its position.
 pos = haystack.index(needle)
-print pos
+#printing the needle string position in the array
+print "The position of the needle string in the array is %s" %(pos)
+
 #Constructing the final JSON, to use in the final request
 finalData = {
 	'token': token,
@@ -36,4 +41,7 @@ finalData = {
 }
 
 #response of the final request
-response = ('http://challenge.code2040.org/api/validateneedle', json.dumps(finalData))
+response = requests.post('http://challenge.code2040.org/api/validateneedle', json.dumps(finalData))
+
+#lets see if I passed the stage 1
+print response.json()
